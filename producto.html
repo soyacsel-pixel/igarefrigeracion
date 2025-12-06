@@ -154,6 +154,83 @@
       from {opacity: 0; transform: translateY(-20px);}
       to {opacity: 1; transform: translateY(0);}
     }
+  /* ---------------------------
+   SIDEBAR — ESTILO GENERAL
+---------------------------- */
+.sidebar {
+  width: 250px;
+  background: #003a70;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  height: auto;
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar .categoria-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.cat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cat-list li {
+  margin: 12px 0;
+}
+
+.cat-list a {
+  color: #d0eaff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 10px;
+  display: block;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.cat-list a:hover {
+  background: #005a9c;
+  color: #ffffff;
+}
+
+/* ---------------------------
+   LAYOUT GENERAL
+---------------------------- */
+.contenedor {
+  display: flex;
+  gap: 20px;
+}
+
+/* ---------------------------
+   RESPONSIVO PARA TELÉFONO
+---------------------------- */
+@media (max-width: 768px) {
+
+  .contenedor {
+    flex-direction: column;      /* sidebar arriba del contenido */
+  }
+
+  .sidebar {
+    width: 100%;                 /* ancho completo */
+    position: relative;          /* ya no fija */
+    top: 0;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .cat-list a {
+    font-size: 1.1em;
+    padding: 12px;
+  }
+}
+
 
 
 </style>
@@ -1196,3 +1273,4 @@
 
 </body>
 </html>
+
