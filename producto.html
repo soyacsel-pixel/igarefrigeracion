@@ -9,163 +9,90 @@
 
 
 <style>
-  /* --- Base similar a tus páginas previas --- */
-  body{font-family:Arial, Helvetica, sans-serif;margin:0;background:#f6f7f7;color:#222;}
-  header{background:#003a70;color:#fff;padding:20px;text-align:center;position:relative;}
-  header img{position:absolute;top:10px;left:10px;width:120px;height:120px;}
-  nav{background:#005a9c;padding:10px;text-align:center;}
-  nav a{color:rgb(155,221,252);margin:0 12px;text-decoration:none;font-weight:bold;}
-  h1,h2{margin:0;padding:0;}
-  h2{font-size:2.2em;text-align:center;margin-top:18px;margin-bottom:8px;}
+ /* ----------------------------------------------------
+   🟦 ESTILOS GENERALES
+---------------------------------------------------- */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f6f7f7;
+  color: #222;
+}
 
-  /* --- Layout: sidebar + contenido --- */
-  .main {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 20px;
-    max-width:1200px;
-    margin: 25px auto;
-    padding: 0 15px;
-  }
+h1, h2 {
+  margin: 0;
+  padding: 0;
+}
 
-  /* Sidebar categorias */
-  .sidebar {
-    background:#fff;
-    border-radius:8px;
-    padding:12px;
-    box-shadow:0 0 10px rgba(0,0,0,0.08);
-    position:sticky;
-    top:20px;
-    height:fit-content;
-  }
+h2 {
+  font-size: 2.2em;
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
 
-  .categoria-title{font-weight:bold;color:#003a70;margin-bottom:8px;}
-  .cat-list{list-style:none;padding:0;margin:0;}
-  .cat-list li{margin:8px 0;}
-  .cat-list a{
-    color:#003a70;text-decoration:none;padding:8px 10px;display:block;border-radius:6px;
-  }
-  .cat-list a:hover{background:#e8f6ff;}
+img {
+  border-radius: 6px;
+}
 
-  /* Contenido: secciones por categoria */
-  .content{padding-bottom:60px;}
-  .section {margin-bottom:30px;}
-  .section h3{background:#fff;padding:12px;border-left:6px solid #003a70;border-radius:6px;font-size:1.2em;}
+/* ----------------------------------------------------
+   🟦 HEADER
+---------------------------------------------------- */
+header {
+  background: #003a70;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
 
-  /* Grid de productos */
-  .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-    gap:18px;
-    margin-top:12px;
-  }
+header img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 120px;
+  height: 120px;
+}
 
-  .producto {
-    background:#fff;border-radius:10px;padding:12px;text-align:center;
-    box-shadow:0 6px 14px rgba(0,0,0,0.06);
-    transition: transform .18s, box-shadow .18s;
-  }
-  .producto:hover{transform:translateY(-6px);box-shadow:0 14px 28px rgba(0,0,0,0.12);}
-  .producto img{width:100%;height:160px;object-fit:contain;border-radius:6px;background:#fafafa;padding:6px;}
-  .producto h4{margin:10px 0 6px;font-size:1.05em;color:#003a70;}
-  .producto p{font-size:0.95em;color:#444;margin:0 0 8px;}
-  .precio{font-weight:bold;color:#003a70;}
+/* ----------------------------------------------------
+   🟦 NAV
+---------------------------------------------------- */
+nav {
+  background: #005a9c;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: rgb(155,221,252);
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-  /* Etiqueta variante (pequeña) */
-  .variantos{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;}
-  .variantos span{background:#e9f6ff;color:#003a70;padding:6px 8px;border-radius:6px;font-size:0.85em;border:1px solid #cfefff;}
+/* ----------------------------------------------------
+   🟦 LAYOUT GENERAL (SIDEBAR + CONTENIDO)
+---------------------------------------------------- */
+.main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
 
-  /* Responsive: sidebar colapsa */
-  @media (max-width:900px){
-    .main{grid-template-columns:1fr;padding:0 12px;}
-    header img{display:none;}
-  }
-   /* -------------------- BOTÓN MODERNO -------------------- */
-    .btn-modern {
-      display: inline-block;
-      background: #005a9c;
-      color: white;
-      padding: 12px 25px;
-      margin-top: 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.4s;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .btn-modern:hover {
-      background: #003a70;
-      transform: scale(1.05);
-    }
-
-    /* -------------------- BOTÓN WHATSAPP FLOTANTE -------------------- */
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 18px;
-      border-radius: 50%;
-      font-size: 35px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      z-index: 999;
-      transition: 0.3s;
-    }
-
-    .whatsapp-btn:hover {
-      transform: scale(1.1);
-    }
-
-    /* -------------------- PIE DE PÁGINA -------------------- */
-    footer {
-      background: #003a70;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 40px;
-    }
-
-    .social-icons i {
-      font-size: 40px;
-      margin: 0 15px;
-      transition: 0.3s;
-    }
-
-    .social-icons i:hover {
-      transform: scale(1.2);
-      color: #8bd7ff;
-    }
-
-    /* -------------------- ANIMACIONES -------------------- */
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
-
-    @keyframes fadeUp {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeDown {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-  /* ---------------------------
-   SIDEBAR — ESTILO GENERAL
----------------------------- */
+/* ----------------------------------------------------
+   🟦 SIDEBAR
+---------------------------------------------------- */
 .sidebar {
   width: 250px;
   background: #003a70;
   color: white;
   padding: 20px;
   border-radius: 12px;
-  height: auto;
   position: sticky;
   top: 20px;
+  height: fit-content;
 }
 
 .sidebar .categoria-title {
@@ -194,42 +121,200 @@
   border-radius: 8px;
   transition: 0.3s;
 }
-
 .cat-list a:hover {
   background: #005a9c;
   color: #ffffff;
 }
 
-/* ---------------------------
-   LAYOUT GENERAL
----------------------------- */
-.contenedor {
-  display: flex;
-  gap: 20px;
+/* ----------------------------------------------------
+   🟦 CONTENIDO
+---------------------------------------------------- */
+.content {
+  padding-bottom: 60px;
 }
 
-/* ---------------------------
-   RESPONSIVO PARA TELÉFONO
----------------------------- */
-@media (max-width: 768px) {
+.section {
+  margin-bottom: 30px;
+}
 
-  .contenedor {
-    flex-direction: column;      /* sidebar arriba del contenido */
+.section h3 {
+  background: #fff;
+  padding: 12px;
+  border-left: 6px solid #003a70;
+  border-radius: 6px;
+  font-size: 1.2em;
+}
+
+/* ----------------------------------------------------
+   🟦 GRID DE PRODUCTOS
+---------------------------------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.producto {
+  background:#fff;
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 6px 14px rgba(0,0,0,0.06);
+  transition: transform .18s, box-shadow .18s;
+}
+
+.producto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.producto img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: #fafafa;
+  padding: 6px;
+}
+
+.producto h4 {
+  margin: 10px 0 6px;
+  font-size: 1.05em;
+  color: #003a70;
+}
+
+.producto p {
+  font-size: 0.95em;
+  color: #444;
+  margin: 0 0 8px;
+}
+
+.precio {
+  font-weight: bold;
+  color: #003a70;
+}
+
+/* Variantes pequeñas */
+.variantos {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:center;
+  margin-top:8px;
+}
+.variantos span {
+  background:#e9f6ff;
+  color:#003a70;
+  padding:6px 8px;
+  border-radius:6px;
+  font-size:0.85em;
+  border:1px solid #cfefff;
+}
+
+/* ----------------------------------------------------
+   🟦 RESPONSIVO (TELÉFONO)
+---------------------------------------------------- */
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 0 12px;
   }
+  header img {
+    display: none;
+  }
+}
 
+@media (max-width: 768px) {
   .sidebar {
-    width: 100%;                 /* ancho completo */
-    position: relative;          /* ya no fija */
+    width: 100%;
+    position: relative;
     top: 0;
     border-radius: 10px;
     text-align: center;
   }
-
   .cat-list a {
     font-size: 1.1em;
     padding: 12px;
   }
 }
+
+/* ----------------------------------------------------
+   🟦 BOTÓN MODERNO
+---------------------------------------------------- */
+.btn-modern {
+  display: inline-block;
+  background: #005a9c;
+  color: white;
+  padding: 12px 25px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.4s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.btn-modern:hover {
+  background: #003a70;
+  transform: scale(1.05);
+}
+
+/* ----------------------------------------------------
+   🟦 BOTÓN WHATSAPP
+---------------------------------------------------- */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 18px;
+  border-radius: 50%;
+  font-size: 35px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: 0.3s;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ----------------------------------------------------
+   🟦 FOOTER
+---------------------------------------------------- */
+footer {
+  background: #003a70;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+.social-icons i {
+  font-size: 40px;
+  margin: 0 15px;
+  transition: 0.3s;
+}
+.social-icons i:hover {
+  transform: scale(1.2);
+  color: #8bd7ff;
+}
+
+/* ----------------------------------------------------
+   🟦 ANIMACIONES
+---------------------------------------------------- */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
 
 
 
@@ -1273,4 +1358,5 @@
 
 </body>
 </html>
+
 
