@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Contacto - IGA Refrigeración</title>
+
+<!-- Iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f6f7f7;
+  }
+
+  header {
+    background: #003a70;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+  }
+
+  header img {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+
+  nav {
+    background: #005a9c;
+    padding: 10px;
+    text-align: center;
+  }
+
+  nav a {
+    color: rgb(155, 221, 252);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-top: 25px;
+  }
+
+  /* Tarjetas */
+  .caja {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    border: 2px solid #0099ff;
+    transition: transform .3s, box-shadow .3s;
+    animation: fadeIn .7s ease forwards;
+    opacity: 0;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px #00b7ff;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  /* Formulario */
+  form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #0099ff;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #f0faff;
+  }
+
+  form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    background: #0075c0;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  form button:hover {
+    background: #00a6ff;
+  }
+
+  /* Botón WhatsApp */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #00c853;
+    color: white;
+    font-size: 35px;
+    padding: 16px 18px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 12px #00c853;
+    transition: 0.3s;
+  }
+
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00ff80;
+  }
+
+  /* Footer */
+  footer {
+    background: #003a70;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+  }
+
+  footer .redes a {
+    color: #7cd3ff;
+    margin: 0 12px;
+    font-size: 30px;
+    transition: .3s;
+    text-decoration: none;
+  }
+
+  footer .redes a:hover {
+    color: #00b7ff;
+    text-shadow: 0 0 10px #00b7ff;
+  }
+  
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #003a70, #005a9c);
+  padding: 25px 10px;
+  color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.header .logo {
+  height: 110px;
+  width: 110px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+}
+
+.title-block h1 {
+  margin: 0;
+  font-size: 2.4em;
+}
+
+.title-block p {
+  margin: 3px 0 0 0;
+  font-size: 1.1em;
+}
+/* FOOTER MODERNO */
+.footer {
+  background: #003a70;
+  color: white;
+  padding: 40px 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  margin-top: 25px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Redes sociales */
+.social-icons i {
+  font-size: 38px;
+  margin: 0 12px;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+  color: #8bd7ff;
+}
+
+/* REDONDEO GLOBAL PARA COHERENCIA */
+img, iframe, .btn-modern, .carousel, .producto-card {
+  border-radius: 12px !important;
+}
+
+section {
+  background: #ffffff;
+  margin: 25px auto;
+  padding: 25px;
+  max-width: 1200px;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>IGA Refrigeración</h1>
+  <div class="contenedor-centrado">
+      <img src="images/imageen1.jpg" alt="logo iga refrigeracion" height="200" width="200">     
+  </div>
+  <p>Contacto y soporte técnico</p>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="producto.html">Productos</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<h2>Contáctanos</h2>
+
+<div class="caja">
+
+  <!-- Teléfono -->
+  <div class="card">
+    <h3><i class="fa-solid fa-phone"></i> Teléfonos</h3>
+    <p><strong>WhatsApp:</strong> 55-9640-7255</p>
+  </div>
+
+  <!-- Email -->
+  <div class="card">
+    <h3><i class="fa-solid fa-envelope"></i> Correo Electrónico</h3>
+    <p>📩 igarefrigeracion@outlook.com</p>
+  </div>
+
+  <!-- Dirección + Mapa -->
+  <div class="card">
+    <h3><i class="fa-solid fa-location-dot"></i> Ubicación</h3>
+    <p>📍 Dirección: C. Nte. 78-A 5125, Gertrudis Sánchez III Secc, Gustavo A. Madero, CDMX</p>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1358!2d-99.107!3d19.448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f94fb4af!2sGertrudis%20S%C3%A1nchez%20III%20Secc!5e0!3m2!1ses!2smx!4v000000"
+      width="100%" height="250" style="border:0; border-radius:10px;">
+    </iframe>
+  </div>
+
+  <!-- Formulario -->
+  <div class="card">
+    <h3><i class="fa-solid fa-paper-plane"></i> Envíanos un mensaje para cotizar</h3>
+
+    <form>
+      <label>Nombre *</label>
+      <input type="text" required>
+
+      <label>Correo *</label>
+      <input type="email" required>
+
+      <label>Mensaje *</label>
+      <textarea rows="4" required></textarea>
+
+      <button>Enviar</button>
+    </form>
+  </div>
+
+</div>
+
+<!-- WhatsApp -->
+<a class="whatsapp-btn" href="https://wa.me/5215596407255">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+<footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p>📞 55 9640 7255</p>
+      <p>📍 C. Nte. 78-A 5125, GAM, CDMX</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Horarios</h3>
+      <p>Lunes a Viernes: 9:00–18:00</p>
+      <p>Sábado: 9:00–14:00</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1CpCgmKRqN/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer-bottom">© 2025 IGA Refrigeración - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>

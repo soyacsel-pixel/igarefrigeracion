@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Productos - IGA Refrigeración</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<style>
+  /* --- Base similar a tus páginas previas --- */
+  body{font-family:Arial, Helvetica, sans-serif;margin:0;background:#f6f7f7;color:#222;}
+  header{background:#003a70;color:#fff;padding:20px;text-align:center;position:relative;}
+  header img{position:absolute;top:10px;left:10px;width:120px;height:120px;}
+  nav{background:#005a9c;padding:10px;text-align:center;}
+  nav a{color:rgb(155,221,252);margin:0 12px;text-decoration:none;font-weight:bold;}
+  h1,h2{margin:0;padding:0;}
+  h2{font-size:2.2em;text-align:center;margin-top:18px;margin-bottom:8px;}
+
+  /* --- Layout: sidebar + contenido --- */
+  .main {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    max-width:1200px;
+    margin: 25px auto;
+    padding: 0 15px;
+  }
+
+  /* Sidebar categorias */
+  .sidebar {
+    background:#fff;
+    border-radius:8px;
+    padding:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.08);
+    position:sticky;
+    top:20px;
+    height:fit-content;
+  }
+
+  .categoria-title{font-weight:bold;color:#003a70;margin-bottom:8px;}
+  .cat-list{list-style:none;padding:0;margin:0;}
+  .cat-list li{margin:8px 0;}
+  .cat-list a{
+    color:#003a70;text-decoration:none;padding:8px 10px;display:block;border-radius:6px;
+  }
+  .cat-list a:hover{background:#e8f6ff;}
+
+  /* Contenido: secciones por categoria */
+  .content{padding-bottom:60px;}
+  .section {margin-bottom:30px;}
+  .section h3{background:#fff;padding:12px;border-left:6px solid #003a70;border-radius:6px;font-size:1.2em;}
+
+  /* Grid de productos */
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:18px;
+    margin-top:12px;
+  }
+
+  .producto {
+    background:#fff;border-radius:10px;padding:12px;text-align:center;
+    box-shadow:0 6px 14px rgba(0,0,0,0.06);
+    transition: transform .18s, box-shadow .18s;
+  }
+  .producto:hover{transform:translateY(-6px);box-shadow:0 14px 28px rgba(0,0,0,0.12);}
+  .producto img{width:100%;height:160px;object-fit:contain;border-radius:6px;background:#fafafa;padding:6px;}
+  .producto h4{margin:10px 0 6px;font-size:1.05em;color:#003a70;}
+  .producto p{font-size:0.95em;color:#444;margin:0 0 8px;}
+  .precio{font-weight:bold;color:#003a70;}
+
+  /* Etiqueta variante (pequeña) */
+  .variantos{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:8px;}
+  .variantos span{background:#e9f6ff;color:#003a70;padding:6px 8px;border-radius:6px;font-size:0.85em;border:1px solid #cfefff;}
+
+  /* Responsive: sidebar colapsa */
+  @media (max-width:900px){
+    .main{grid-template-columns:1fr;padding:0 12px;}
+    header img{display:none;}
+  }
+   /* -------------------- BOTÓN MODERNO -------------------- */
+    .btn-modern {
+      display: inline-block;
+      background: #005a9c;
+      color: white;
+      padding: 12px 25px;
+      margin-top: 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.4s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .btn-modern:hover {
+      background: #003a70;
+      transform: scale(1.05);
+    }
+
+    /* -------------------- BOTÓN WHATSAPP FLOTANTE -------------------- */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 18px;
+      border-radius: 50%;
+      font-size: 35px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* -------------------- PIE DE PÁGINA -------------------- */
+    footer {
+      background: #003a70;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    .social-icons i {
+      font-size: 40px;
+      margin: 0 15px;
+      transition: 0.3s;
+    }
+
+    .social-icons i:hover {
+      transform: scale(1.2);
+      color: #8bd7ff;
+    }
+
+    /* -------------------- ANIMACIONES -------------------- */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+
+</style>
+</head>
+<body>
+
+    <header class="header">
+  <div class="header-content">
+    <img src="images/imageen1.jpg" alt="logo iga refrigeracion" class="logo" height="300" width="300">
+
+    <div class="title-block">
+      <h1>IGA Refrigeración</h1>
+      <p>Venta de refacciones para mantenimiento y servicio técnico</p>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="producto.html">Productos</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<div class="main">
+
+  <!-- SIDEBAR: CATEGORÍAS -->
+  <aside class="sidebar">
+    <div class="categoria-title">Categorías</div>
+    <ul class="cat-list">
+      <li><a href="#gases">Gases refrigerantes</a></li>
+      <li><a href="#consumibles">insumos y limpieza</a></li>
+      <li><a href="#componentes">Refacciones, electrico y Controles </a></li>
+      <li><a href="#compresores">Compresores</a></li>
+      <li><a href="#herramientas">Herramientas</a></li>
+      <li><a href="#instalacion">Instalación y accesorios</a></li>
+      <li><a href="#equipos">Equipos y partes</a></li>
+      <li><a href="#otros">Lavadoras y Enceres </a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENIDO -->
+  <div class="content">
+    <!-- ========================= -->
+<!--   SECCIÓN: GASES          -->
+<!-- ========================= -->
+<section id="gases" class="section">
+  <h3>Gases refrigerantes</h3>
+      <div class="grid">
+
+
+       <!--22-->
+
+
+
+       <div class="producto">
+         <img src="images2/22.jpg" alt="Gas R-22">
+           <h3>Quimobasicos R-22</h3>
+           <p>Refrigerante para sistemas antiguos y equipos legacy.</p>
+       </div>
+
+
+       <!--134-->
+
+
+       <div class="producto">
+         <img src="images2/134IGAS.jpg" alt="Gas R-134a">
+           <h3>IGAS R-134a</h3>
+           <p>Refrigerante ecológico para autos y equipos domésticos.</p>
+       </div>
+
+       <div class="producto">
+         <img src="images2/134.webp" alt="Gas R-134a">
+           <h3>Quimobasicos R-134a</h3>
+           <p>Refrigerante ecológico para autos y equipos domésticos.</p>
+        </div>
+
+        <div class="producto">
+          <img src="images2/134SERV.jpg" alt="gas 134">
+            <h3>Gas servei R-134</h3>
+            <P>Refrigerante ecológico para autos y equipos domésticos.</P>
+        </div>
+        
+
+       <!-- 32-->
+
+
+       <div class="producto">
+          <img src="images2/32.jpg" alt="Gas R-32">
+            <h3>Quimobasicos R-32</h3>
+            <p>Gas de alta eficiencia energética, ideal para minisplits inverter.</p>
+       </div>
+
+       <div class="producto">
+         <img src="images2/32IGAS.jpg" alt="Gas R-32">
+            <h3>IGas R-32</h3>
+            <p>Gas de alta eficiencia energética, ideal para minisplits inverter.</p>
+       </div>
+
+       <div class="producto">
+         <img src="images2/32CHS.jpg" alt="Gas R-32">
+           <h3>Gas SERVEI R-32</h3>
+           <p>Gas de alta eficiencia energética, ideal para minisplits inverter.</p>
+       </div>
+
+
+       <!--404-->
+
+
+       <div class="producto">
+          <img src="images2/404.jpg" alt="Gas R-404A">
+            <h3>Quimobasicos R-404A</h3>
+            <p>Refrigerante para cámaras de congelación y refrigeración comercial.</p>
+       </div>
+
+       <div class="producto">
+         <img src="images2/404IGAS.jpg" alt="Gas R-404A">
+            <h3>IGas R-404A</h3>
+            <p>Refrigerante para cámaras de congelación y refrigeración comercial.</p>
+       </div>
+
+       <div class="producto">
+         <img src="images2/404SERVEI.jpg" alt="Gas R-404A">
+            <h3>Gas SERVEI R-404A</h3>
+            <p>Refrigerante para cámaras de congelación y refrigeración comercial.</p>
+       </div>
+
+
+       <!--410-->
+
+
+       <div class="producto">
+         <img src="images2/410.jpg" alt="Gas R-410A">
+           <h3>Quimobasicos R-410A</h3>
+           <p>Refrigerante de alta presión usado en minisplits modernos.</p>
+       </div>
+
+       <div class="producto">
+         <img src="images2/410IGAS.jpg" alt="Gas R-410A">
+           <h3>IGAS R-410A</h3>
+           <p>Refrigerante de alta presión usado en minisplits modernos.</p>
+       </div>
+
+       <div class="producto">
+          <img src="images2/410SERVEI.jpg" alt="Gas R-410A">
+           <h3>Gas SERVEI R-410A</h3>
+           <p>Refrigerante de alta presión usado en minisplits modernos.</p>
+       </div>
+
+
+       <!--600-->
+
+
+       <div class="producto">
+         <img src="images2/600c.webp" alt="Gas R-22">
+           <h3> Aquion 600a 150g</h3>
+           <p>Refrigerante natural para refrigeradores modernos en su presentacion pequeña.</p>
+       </div>
+
+
+       <!--290-->
+
+
+       <div class="producto">
+         <img src="images2/290.webp"Gas R-290">
+           <h3>Quimobasicoss R-290</h3>
+           <p>Refrigerante ecológico de alto desempeño para equipos comerciales.</p>
+       </div>
+
+
+
+<!-- Tanques grandes ("boyas") -->
+
+
+<div class="producto">
+  <img src="images2/410BOYA.jpg." alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas IGAS 410</h3>
+  <p>Gas refrigrante 410.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/404BOYA.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas IGAS</h3>
+  <p>Gas refrigrante 404.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/438.webp" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas IGAS</h3>
+  <p>Gas refrigrante 438.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/134b.webp" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas Quimobasicos</h3>
+  <p>Gas refrigrante 134.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/22b.webp" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas Quimobasicos</h3>
+  <p>Gas refrigrante 22.</p>
+</div>
+
+<div class="producto">
+  <img src="images/RS70.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI RS-70</h3>
+  <p>Gas refrigrante RS-70.</p>
+</div>
+
+<div class="producto">
+  <img src="images/RS50.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI RS-50</h3>
+  <p>Gas refrigrante RS-50.</p>
+</div>
+
+<div class="producto">
+  <img src="images/RS45.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI RS-45</h3>
+  <p>Gas refrigrante RS-45.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/32S.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI R-32</h3>
+  <p>Gas refrigrante R-32.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/134S.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI R-134a</h3>
+  <p>Gas refrigrante R-134a.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/404S.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI R-404A</h3>
+  <p>Gas refrigrante R-404A.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/407C.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI R-407C</h3>
+  <p>Gas refrigrante R-407C.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/410S.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI R-410A</h3>
+  <p>Gas refrigrante R-410A.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/507S.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI R-507</h3>
+  <p>Gas refrigrante R-507S.</p>
+</div>
+
+<div class="producto">
+  <img src="images2/14234YF.jpg" alt="Tanque grande para refrigerante">
+  <h3>Boya de Gas SERVEI R-1234yf</h3>
+  <p>Gas refrigrante R-1234yf.</p>
+</div>
+</div>
+    </section>
+    
+
+    <!-- 2) Consumibles y limpieza -->
+
+    <section id="consumibles" class="section">
+      <h3>insumos y limpieza</h3>
+      <div class="grid">
+        
+         
+    <!-- Foam Clean -->
+    <div class="producto">
+      <img src="images/foam cleaner.webp" alt="foamcleaner">
+        <h3>Foam Clean</h3>
+        <p>Limpiador espumoso para equipos de refrigeración y aire acondicionado.</p>
+        <ul>
+            <li>Presentaciones: 1L, 5L, 20L</li>
+            <li>Colores: Rosa, Morado, Blanco, Café</li>
+        </ul>
+    </div>
+
+    <!-- Flush -->
+    <div class="producto">
+            <img src="images/flush.jpg" alt="flush">
+
+        <h3>Flush</h3>
+        <p>Líquido para limpieza interna de líneas de refrigeración y sistemas contaminados.</p>
+         <ul>
+            <li>Presentaciones: 500gr, 800gr, 3kg</li>
+            <li> igas, uni, sistem Flushs</li>
+        </ul>
+    </div>
+    <div class="producto">
+            <img src="images/FLUSHSER.jpg" alt="flush">
+
+    <h3>Flush SERVEI </h3>
+        <p>Líquido para limpieza interna de líneas de refrigeración y sistemas contaminados.</p>
+         <ul>
+            <li>Presentaciones:800gr, 3kg</li>
+            <li>GAS FLUSH PRESURIZADO</li>
+        </ul>
+    </div>
+
+
+    <!-- Fundente -->
+    <div class="producto">
+            <img src="images/fun.jpg" alt="flush">
+        <h3>Fundente</h3>
+        <p>Fundente especial para soldadura en líneas de cobre y reparaciones.</p>
+    </div>
+
+    <!-- Tapa fugas -->
+    <div class="producto">
+                  <img src="images/tapa.jpg" alt="tapa fugas">
+        <h3>Tapa Fugas</h3>
+        <p>Sellador líquido para pequeñas fugas en sistemas de refrigeración.</p>
+    </div>
+
+    <!-- Adhesivos -->
+    <div class="producto">
+      <img src="images/innsu.jpg" alt="adhesivos">
+        <h3>Adhesivos</h3>
+        <p>adhesivos para instalación y reparación.</p>
+    </div>
+
+    <!-- Espumas -->
+    <div class="producto">
+      <img src="images/espuma.jpg" alt="espuma">
+        <h3>Espumas</h3>
+         
+        <p>Espumas de poliuretano expansivas , para aislamiento termico ,rellenado y sellado e impermeavilisacion </p>
+    </div>
+
+    <!-- Armaflex -->
+    <div class="producto">
+      <img src="images2/aislante.jpg" alt="aislante termico">
+        <h3>Armaflex</h3>
+        <p>Aislamiento térmico para tubería de refrigeración en múltiples diámetros.</p>
+    </div>
+
+    <!-- Cinta momia -->
+    <div class="producto">
+      <img src="images2/cinta momia.jpg" alt="cinta aislante ">
+        <h3>Cinta Momia</h3>
+        <p>Cinta de protección para tubería y líneas de cobre.</p>
+    </div>
+    <!-- ACEITES -->
+    <div class="producto">
+            <img src="images2/aceite.jpg" alt="cinta aislante ">
+
+        <h3>Aceites</h3>
+        <p>Aceite para compresor de refrigeración.</p>
+        <ul>
+        <li>aceite POE (150 y 300)</li>
+        <li>aceite texas mineral (200 y 150)</li>
+        <li>aceite texas sintetico</li>
+        <li>aceite flushing premiun</li>
+        </ul>
+    </div>
+    <div class="producto">
+  <img src="images/soldadura.jpg" alt="Barras de soldadura">
+  <h4>Barras de soldadura</h4>
+  <p>Para trabajos de reparación y ensamble.</p>
+</div>
+<div class="producto">
+  <img src="images/oxigeno.jpg" alt="Oxígeno">
+  <h4>Oxígeno</h4>
+  <p>Para equipos de soldadura.</p>
+</div>
+
+<div class="producto">
+  <img src="images/thurnernegro.jpg" alt="Oxígeno">
+  <h4>Turner negro</h4>
+  <p>Para equipos de soldadura.</p>
+</div>
+<div class="producto">
+  <img src="images2/amarillo.webp" alt="Oxígeno">
+  <h4>Turner amarillo</h4>
+  <p>Para equipos de soldadura.</p>
+</div>
+
+   
+   
+
+</section>
+
+    <!-- 3) Componentes -->
+    <section id="componentes" class="section">
+      <h3>Refacciones, electrico y Controles</h3>
+      <div class="grid">
+        <div class="producto">
+          <img src="images2/contactores.jpg" alt="Contactores">
+          <h4>Contactores</h4>
+          <p>Contactores para compresores y ventiladores.</p>
+          <ul>
+            <li>apli parts</li>
+            <li>ice shadow</li>
+            <li>grupo barreto</li>
+            <li>coldtek</li>
+          </ul>
+        </div>
+
+        
+        <!-- FILTROS -->
+    <div class="producto">
+            <img src="images/filtros.jpg" alt="cinta aislante ">
+
+        <ul>
+            <li>Filtro tipo Danfoss</li>
+            <li>Filtro deshidratador doméstico</li>
+            <li>Filtro deshidratador comercial</li>
+            <li>filtro fler</li>
+            <li>filtro roscable</li>
+            <li>separador de aceite</li>
+        </ul>
+    </div>
+
+    <!-- CAPILARES -->
+    <div class="producto">
+            <img src="images2/capi.jpg" alt="cinta aislante ">
+
+        <h3>Capilares</h3>
+        <ul>
+            <li>Capilares estándar</li>
+            <li>Capilares de diferentes calibres</li>
+        </ul>
+    </div>
+
+
+    <!-- RELAYS Y ARRANQUE -->
+    <div class="producto">
+            <img src="images/relays.jpg" alt="cinta aislante ">
+
+        <h3>Relays</h3>
+        <ul>
+            <li>Relays</li>
+            <li>PTC</li>
+            <li>protector termico</li>
+        </ul>
+    </div>
+
+    <!-- VÁLVULAS -->
+    <div class="producto">
+            <img src="images/valvulas.jpg" alt="cinta aislante ">
+
+        <h3>Válvulas</h3>
+        <ul>
+            <li>Válvula solenoide</li>
+            <li>Válvula para lavadora</li>
+                  </ul>
+    </div>
+
+    <!-- SENSORES Y CONTROLES -->
+    <div class="producto">
+            <img src="images2/controles.jpg" alt="cinta aislante ">
+
+        <h3>Sensores y Controles</h3>
+        <ul>
+            <li>MT512 Full Gauge</li>
+            <li>Termostato</li>
+            <li>Controles universales</li>
+            <li>Tarjeta con control universal</li>
+            <li>Presostato</li>
+        </ul>
+    </div>
+
+    <!-- MOTORES -->
+    <div class="producto">
+            <img src="images/flecha.jpg" alt="cinta aislante ">
+
+        <h3>Motores para refrigeracion</h3>
+        <ul>
+            <li>Motor de flecha larga</li>
+            <li>Motor de flecha corta</li>
+        </ul>
+    </div>
+
+    <!-- ASPAS -->
+
+    <div class="producto">
+            <img src="images2/aspas.jpg" alt="cinta aislante ">
+
+        <h3>Aspas</h3>
+        <ul>
+            <li>Aspas por diámetros</li>
+            <li>aluinio</li>
+            <li>plastico</li>
+        </ul>
+    </div>
+        <div class="producto">
+          <img src="images/Tuberia.png" alt="Capilares">
+          <h4>Capilares</h4>
+          <p>Diferentes calibres para proyectos y repuestos.</p>
+        </div>
+
+        <div class="producto">
+          <img src="images2/cap.png" alt="Capacitor">
+          <h4>Capacitores</h4>
+          <p>Arranque y marcha — varias capacidades.</p>
+        </div>
+         <div class="producto">
+  <img src="images/reloj.jpg" alt="Relojes temporizadores">
+  <h4>Relojes de deshielo</h4>
+  <p>Marca DAEWO.</p>
+</div>
+
+      </div>
+    </section>
+   
+    <!-- 4) Compresores -->
+    <section id="compresores" class="section">
+      <h3>Compresores</h3>
+      <div class="grid">
+        <div class="producto">
+          <img src="images2/comprnsor.png" alt="Compresor">
+          <h4>Compresores sikeland</h4>
+        </div>
+        <div class="producto">
+          <img src="images/R.jpg" alt="Compresor">
+          <h4>Compresores comptek</h4>
+        </div>
+         <div class="producto">
+          <img src="images/em.jpg" alt="Compresor">
+          <h4>Compresores embraco</h4>
+        </div>
+         <div class="producto">
+          <img src="images2/copeland.jpg" alt="Compresor">
+          <h4>Compresores copeland semihermetico</h4>
+          <p>compresor semi hermetico para 7.5HP PARA r-22, 220V TF5 </p>
+        </div>
+         <div class="producto">
+          <img src="images/scroll1.webp" alt="Compresor">
+          <h4>Compresores copeland scroll</h4>
+        </div>
+         <div class="producto">
+          <img src="images2/CF.jpg" alt="Compresor">
+          <h4>Compresores copeland CR18</h4>
+          <p>compresor CR18, TF5, R-22, 220V</p>
+        </div>
+         <div class="producto">
+          <img src="images2/dan.webp" alt="Compresor">
+          <h4>Compresores Danfoss</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) Herramientas -->
+<section id="herramientas" class="section">
+  <h3>Herramientas</h3>
+
+  <div class="grid">
+
+    
+        <div class="producto">
+  <img src="images2/CANDADO.jpg" alt="Candados">
+  <h4>Candados</h4>
+  <p>Uso general y seguridad.</p>
+</div>
+
+    <div class="producto">
+  <img src="images/multimetro.jpg" alt="Multímetro digital">
+  <h4>Multímetro digital</h4>
+  <p>Instrumento de medición para voltaje, amperaje, continuidad y más.</p>
+</div>
+
+<div class="producto">
+  <img src="images/flare.jpg" alt="Juego Flare">
+  <h4>Juego Flare</h4>
+  <p>Herramienta para realizar abocardados precisos en tubería.</p>
+</div>
+<div class="producto">
+  <img src="images/electrisista.webp" alt="Pinzas de electricista">
+  <h4>Pinzas de electricista</h4>
+  <p>Herramienta para corte y sujeción en trabajos eléctricos.</p>
+</div>
+<div class="producto">
+  <img src="images/PINZA5.jpg" alt="Juego de 5 pinzas">
+  <h4>Juego de 5 pinzas</h4>
+  <p>Set completo para trabajos mecánicos y eléctricos.</p>
+</div>
+<div class="producto">
+  <img src="images/PINZAS3.jpg" alt="Juego de 3 pinzas">
+  <h4>Juego de 3 pinzas</h4>
+  <p>Set práctico de pinzas esenciales para mantenimiento.</p>
+</div>
+<div class="producto">
+  <img src="images/PINZAPRECION.jpg" alt="Pinzas de presión">
+  <h4>Pinzas de presión</h4>
+  <p>Herramienta de agarre fuerte y bloqueo ajustable.</p>
+</div>
+<div class="producto">
+  <img src="images/PERICO.jpg" alt="Llave perico">
+  <h4>Llave perico</h4>
+  <p>Ajustable para múltiples tamaños de tuercas.</p>
+</div>
+<div class="producto">
+  <img src="images/STILSON.jpg" alt="Llave Stilson">
+  <h4>Llave Stilson</h4>
+  <p>Especial para tubería y conexiones.</p>
+</div>
+<div class="producto">
+  <img src="images/TORX.jpg" alt="Llaves Allen y Torx">
+  <h4>Juego Allen y Torx</h4>
+  <p>Kits completos para múltiples aplicaciones mecánicas.</p>
+</div>
+<div class="producto">
+  <img src="images/PELACABLES.jpg" alt="Pinzas ponchadoras">
+  <h4>Pinzas pela cable</h4>
+  <p>Para conectores eléctricos.</p>
+</div>
+<div class="producto">
+  <img src="images/DESARMADOR6PAK.jpg" alt="Set de 6 desarmadores">
+  <h4>Set de 6 desarmadores</h4>
+  <p>Juego completo tipo plano y cruz.</p>
+</div>
+<div class="producto">
+  <img src="images/DESARMADOR2PAK.jpg" alt="Set de 2 desarmadores">
+  <h4>Set de 2 desarmadores</h4>
+  <p>Ideal para uso general.</p>
+</div>
+<div class="producto">
+  <img src="images/GOLPE.jpg" alt="Puntas de impacto">
+  <h4>Juego de puntas de impacto</h4>
+  <p>Compatibles con taladro y atornillador.</p>
+</div>
+<div class="producto">
+  <img src="images/FLEXOMETRO.jpg" alt="Flexómetro">
+  <h4>Flexómetro</h4>
+  <p>Herramienta de medición precisa.</p>
+</div>
+<div class="producto">
+  <img src="images2/COTADORDETUBO.jpg" alt="Cortador de tubo">
+  <h4>Cortador de tubo</h4>
+  <p>Para cobre y aluminio.</p>
+</div>
+<div class="producto">
+  <img src="images2/broca.jpg" alt="Brocas">
+  <h4>Brocas</h4>
+  <p>Para taladro — múltiples medidas.</p>
+</div>
+<div class="producto">
+  <img src="images/expansor.webp" alt="Expansor">
+  <h4>Expansor de golpe</h4>
+  <p>Amplía tubería para uniones perfectas.</p>
+</div>
+<div class="producto">
+  <img src="images2/CAUTIN.jpg" alt="Cautín">
+  <h4>Cautín</h4>
+  <p>Soldadura electrónica precisa.</p>
+</div>
+<div class="producto">
+  <img src="images/GUANTES.jpg" alt="Guantes">
+  <h4>Guantes de trabajo</h4>
+  <p>Disponibles en cuero y tela.</p>
+</div>
+<div class="producto">
+  <img src="images2/abrazaderas.webp" alt="Abrazaderas">
+  <h4>Abrazaderas</h4>
+  <p>Para sujeción de tubería y cables.</p>
+</div>
+<div class="producto">
+  <img src="images/lavadora.webp" alt="Llave para tuercas de lavadora">
+  <h4>Llave para tuercas de lavadora</h4>
+  <p>Herramienta especializada para desmontaje.</p>
+</div>
+<div class="producto">
+  <img src="images2/circular.webp" alt="Sierra circular">
+  <h4>Sierra circular</h4>
+  <p>Corte profesional de madera y metales.</p>
+</div>
+<div class="producto">
+  <img src="images/escalera.jpg" alt="Escalera telescópica">
+  <h4>Escalera telescópica</h4>
+  <p>Portátil, resistente y ajustable.</p>
+</div>
+
+
+     <!-- MANGUERAS DE GAS LP -->
+    <div class="producto">
+        <img src="images/lp.webp" alt="Escalera telescópica">
+        <h3>Mangueras de Gas LP</h3>
+        <p>Mangueras reforzadas para conexión de gas LP.</p>
+    </div>
+  </div>
+</section>
+    <!-- 6) Instalación y accesorios -->
+    <section id="instalacion" class="section">
+      <h3>Instalación y accesorios</h3>
+      <div class="grid">
+        
+        <div class="producto">
+          <img src="images2/cortina.jpg" alt="Cortina hawaiana">
+          <h4>Cortina Hawaiana</h4>
+          <p>Tiras para cámaras y puertas.</p>
+        </div>
+    
+        <div class="producto">
+  <img src="images/iman.webp" alt="Imán">
+  <h4>Imán para refrigeracion</h4>
+  <p>va junto al empaque de refrigeracion.</p>
+</div>
+         <div class="producto">
+  <img src="images/empaque.jpg" alt="Imán">
+  <h4>empaque para refrigeracion</h4>
+</div>
+<div class="producto">
+  <img src="images2/cerrojo.webp" alt="Cerrojo">
+  <h4>Cerrojo y picaporte</h4>
+  <p>Para lavadoras y equipos domésticos.</p>
+</div>
+        <div class="producto">
+  <img src="images2/convertidor.jpg" alt="Convertidor">
+  <h4>Convertidores</h4>
+  <p>Transformadores para diferentes aplicaciones.</p>
+</div>
+        <div class="producto">
+  <img src="images/termometros.jpg" alt="Termómetros">
+  <h4>Termómetros</h4>
+  <p>Diferentes modelos para medición en refrigeración y aire acondicionado.</p>
+</div>
+      </div>
+    <!-- 8) Equipos completos -->
+    <section id="equipos" class="section">
+      <h3>Equipos y partes</h3>
+      
+      <div class="grid">
+         <!-- EVAPORADORES Y CONDENSADORES -->
+          
+<div class="producto">
+  <img src="images2/base.webp" alt="Manguera de desagüe">
+  <h4>base de pared</h4>
+  <p>base de pared para condensadora de Minisplit</p>
+</div>
+    <div class="producto">
+            <img src="images/eva.png" alt="cinta aislante ">
+
+        <h3>Evaporadores y Condensadores</h3>
+        <ul>
+            <li>Evaporadores</li>
+            <li>Unidad condensadora</li>
+        </ul>
+    </div>
+        <div class="producto">
+          <img src="images/manometros.jpg" alt="Manómetros">
+          <h4>Manómetros</h4>
+          <p>Manómetros de trabajo profesional.</p>
+        </div>
+        <div class="producto">
+          <img src="images/mini.jpg" alt="Minisplit">
+          <h4>Minisplit Inverter</h4>
+          <p>Modelos frio/calor, 1T - 2T. Incluye instalación (opc).</p>
+        </div>
+        <div class="producto">
+          <img src="images/pisotecho.jpg" alt="Minisplit">
+          <h4>Minisplit piso/techo</h4>
+        </div>
+         <div class="producto">
+          <img src="images2/caset.jpg" alt="Minisplit">
+          <h4>Minisplit tipo caset</h4>
+        </div>
+         <div class="producto">
+          <img src="images/unidadc.jpg" alt="Minisplit">
+          <h4>unidad condensadora</h4>
+        </div>
+         <div class="producto">
+          <img src="images/unidade.webp" alt="Minisplit">
+          <h4>unidad evaporadora</h4>
+        </div>
+         <div class="producto">
+          <img src="images2/170.webp" alt="Minisplit">
+          <h4>Motor para unidad condensadora 1/70</h4>
+        </div>
+         <div class="producto">
+          <img src="images2/140.webp" alt="Minisplit">
+          <h4>Motor para unidad condensadora 1/40</h4>
+        </div>
+         <div class="producto">
+          <img src="images/rever4sible.jpg." alt="Minisplit">
+          <h4>Motor reversible 1/12, 1/15, 1/20</h4>
+        </div>
+         <div class="producto">
+          <img src="images/unaflecha.png" alt="Minisplit">
+          <h4>Motor para evaporadora una flecha</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9) Otros -->
+    <section id="otros" class="section">
+      <h3>Lavadoras y enseres </h3>
+      <div class="grid">
+        
+<div class="producto">
+  <img src="images/desague.jpg" alt="Manguera de desagüe">
+  <h4>Manguera de desagüe</h4>
+  <p>Samsung tipo codo.</p>
+</div>
+        
+<div class="producto">
+  <img src="images2/baleros.webp" alt="Manguera de desagüe">
+  <h4>valeros ice shadow</h4>
+  <p>valeros para lavadora</p>
+</div>
+<div class="producto">
+  <img src="images2/chlav.jpg" alt="Manguera de desagüe">
+  <h4>motor chico para lavadora</h4>
+</div>
+
+<div class="producto">
+  <img src="images/oster.jpg" alt="Manguera de desagüe">
+  <h4>cuchillas</h4>
+  <p>cuchillas para licuadora </p>
+  <u>
+    <li>oster</li>
+    <li>rosan</li>
+  </u>
+</div>
+<div class="producto">
+  <img src="images/vaso.jpg" alt="Manguera de desagüe">
+  <h4>vaso para licuadora</h4>
+</div>
+<div class="producto">
+  <img src="images/susp.webp" alt="Manguera de desagüe">
+  <h4>suspenciones</h4>
+  <p>suspenciones para wirepool y otras lavadoras</p>
+</div>
+
+<div class="producto">
+  <img src="images/llenado.jpg" alt="Manguera de desagüe">
+  <h4>manguera</h4>
+  <p>manguera de llenado </p>
+</div>
+
+<div class="producto">
+  <img src="images2/banda.webp" alt="Manguera de desagüe">
+  <h4>bandas para lavadora</h4>
+  <p>diferentes medidas</p>
+</div>
+
+<div class="producto">
+  <img src="images2/agua.webp" alt="Manguera de desagüe">
+  <h4>filtros de agua</h4>
+</div>
+
+<div class="producto">
+  <img src="images2/amaz.jpg" alt="Manguera de desagüe">
+  <h4>transmision amazonas</h4>
+</div>
+
+<div class="producto">
+  <img src="images2/agitador.jpg" alt="Manguera de desagüe">
+  <h4>agitadores para lavadora</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/valama.jpg" alt="Manguera de desagüe">
+  <h4>valvula amarilla whirpool</h4>
+</div>
+  
+<div class="producto">
+  <img src="images/doble.jpg" alt="Manguera de desagüe">
+  <h4>valvula doble whirpool</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/sole.jpg" alt="Manguera de desagüe">
+  <h4>selonoide 6 pines whirpool</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images2/corto.jpg" alt="Manguera de desagüe">
+  <h4>switch lavadora whirpool</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/perno.png" alt="Manguera de desagüe">
+  <h4>juego de pernos whirpool</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/drenado.jpg" alt="Manguera de desagüe">
+  <h4>bomba drenado whirpool</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images2/cople.jpg" alt="Manguera de desagüe">
+  <h4>cople lavadora whirpool</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images2/cluth.webp" alt="Manguera de desagüe">
+  <h4>clouch whirpool</h4>
+  <p></p>
+</div>
+<div class="producto">
+  <img src="images/termo.jpg" alt="Manguera de desagüe">
+  <h4>termoactuador lavadora mabe </h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/sensor.jpg" alt="Manguera de desagüe">
+  <h4>tarjeta de sensor mabe</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/secador.webp" alt="Manguera de desagüe">
+  <h4>motor secado mabe</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images2/bloca.webp" alt="Manguera de desagüe">
+  <h4>blocapuerta mabe</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images2/agitadormabe.webp" alt="Manguera de desagüe">
+  <h4>cople agitador mabe</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/resorte.jpg" alt="Manguera de desagüe">
+  <h4>resorte suspencion whirpool</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images2/daewoo.webp" alt="Manguera de desagüe">
+  <h4>transmicion daewo</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/electrovalvula.webp" alt="Manguera de desagüe">
+  <h4>electrovalvula daewo</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/tornillo.jpg" alt="Manguera de desagüe">
+  <h4>tornillo agitador whirepool
+  </h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images2/bovina.jpg" alt="Manguera de desagüe">
+  <h4>bovina universal</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/tuerca.jpg" alt="Manguera de desagüe">
+  <h4>tuerca izquieda mabe</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images2/6cables.webp" alt="Manguera de desagüe">
+  <h4>reloj 6 cables</h4>
+  <p></p>
+</div>
+
+<div class="producto">
+  <img src="images/polea.jpg" alt="Manguera de desagüe">
+  <h4>polea lavadora mabe</h4>
+  <p></p>
+</div>
+
+
+<div class="producto">
+  <img src="images/largo.webp" alt="Manguera de desagüe">
+  <h4>switch largo mabe</h4>
+  <p></p>
+</div>
+<div class="producto">
+
+  <img src="images2/ajitador.jpg" alt="Disco agitador">
+  <h4>Disco agitador</h4>
+  <p>Repuesto para lavadoras automáticas.</p>
+</div>
+        <div class="producto">
+  <img src="images/ecocina.webp" alt="Parrilla eléctrica">
+  <h4>Cocina inteligente</h4>
+  <p>Parrilla eléctrica con ajustes precisos.</p>
+</div>
+
+      </div>
+    </section>
+
+  </div>
+</div>
+<a href="contacto.html"><img src="images/cotiza.webp" height="100"></a>
+<a class="whatsapp-btn" href="https://wa.me/5596407255" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+<footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p>📞 55 9640 7255</p>
+      <p>📍 C. Nte. 78-A 5125, Gertrudis Sánchez III Secc, Gustavo A. Madero, CDMX</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Horarios</h3>
+      <p>Lunes a Viernes: 8:30–17:00</p>
+      <p>Sábado: 9:00–14:00</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1CpCgmKRqN/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer-bottom">© 2025 IGA Refrigeración - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>

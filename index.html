@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGA Refrigeración</title>
+
+  <!-- ICONOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* -------------------- ESTILOS GENERALES -------------------- */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f6f7f7;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #003a70;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2.00em;
+      position: relative;
+    }
+
+    header img {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 120px;
+      width: 120px;
+      animation: fadeIn 1.5s;
+    }
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #003a70, #005a9c);
+  padding: 25px 10px;
+  color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.header .logo {
+  height: 110px;
+  width: 110px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+}
+
+.title-block h1 {
+  margin: 0;
+  font-size: 2.4em;
+}
+
+.title-block p {
+  margin: 3px 0 0 0;
+  font-size: 1.1em;
+}
+
+    /* -------------------- CARRUSEL -------------------- */
+    .carousel {
+      position: relative;
+      height: 180px; /* alto total del carrusel */
+      width: 100%;
+      max-width: 2000px;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+.carousel-track img {
+  width: calc(100% / 3); /* 2 imágenes visibles */
+  flex-shrink: 0;
+  height: 150px;        /* altura ideal para logos */
+  object-fit: contain;  /* evita que se recorten */
+  padding: 10px;        /* opcional: deja aire entre logos */
+  background: white;    /* mantiene fondo uniforme */
+}
+
+    /* Botones */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 22px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+  .carousel-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* -------------------- NAV -------------------- */
+    nav {
+      background: #005a9c;
+      padding: 10px;
+      text-align: center;
+      animation: fadeDown 1.2s;
+    }
+
+    nav a {
+      color: rgb(155, 221, 252);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+      text-shadow: 0px 0px 8px white;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.90em;
+      animation: fadeUp 1.2s;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 2.60em;
+      animation: fadeUp 1.3s;
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      animation: fadeIn 1.2s;
+    }
+
+    .btn-modern {
+      display: inline-block;
+      background: #005a9c;
+      color: white;
+      padding: 12px 25px;
+      margin-top: 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.4s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .btn-modern:hover {
+      background: #003a70;
+      transform: scale(1.05);
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 18px;
+      border-radius: 50%;
+      font-size: 35px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background: #003a70;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    .social-icons i {
+      font-size: 40px;
+      margin: 0 15px;
+      transition: 0.3s;
+    }
+
+    .social-icons i:hover {
+      transform: scale(1.2);
+      color: #8bd7ff;
+    }
+    /* FOOTER MODERNO */
+.footer {
+  background: #003a70;
+  color: white;
+  padding: 40px 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  margin-top: 25px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Redes sociales */
+.social-icons i {
+  font-size: 38px;
+  margin: 0 12px;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+  color: #8bd7ff;
+}
+/* REDONDEO GLOBAL PARA COHERENCIA */
+ .btn-modern, .carousel, .producto-card {
+  border-radius: 12px !important;
+}
+
+section {
+  background: #ffffff;
+  margin: 25px auto;
+  padding: 25px;
+  max-width: 1200px;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #003a70, #005a9c);
+  padding: 25px 10px;
+  color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.header .logo {
+  height: 110px;
+  width: 110px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+}
+
+.title-block h1 {
+  margin: 0;
+  font-size: 2.4em;
+}
+
+.title-block p {
+  margin: 3px 0 0 0;
+  font-size: 1.1em;
+}
+/* FOOTER MODERNO */
+.footer {
+  background: #003a70;
+  color: white;
+  padding: 40px 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  margin-top: 25px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Redes sociales */
+.social-icons i {
+  font-size: 38px;
+  margin: 0 12px;
+  transition: 0.3s;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+  color: #8bd7ff;
+}
+
+/* REDONDEO GLOBAL PARA COHERENCIA */
+img, iframe, .btn-modern, .carousel, .producto-card {
+  border-radius: 12px !important;
+}
+
+section {
+  background: #ffffff;
+  margin: 25px auto;
+  padding: 25px;
+  max-width: 1200px;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+
+
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes fadeUp { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes fadeDown { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+
+  </style>
+</head>
+
+<body>
+
+    <header class="header">
+  <div class="header-content">
+    <img src="images/imageen1.jpg" alt="logo iga refrigeracion" class="logo" height="300" width="300">
+
+    <div class="title-block">
+      <h1>IGA Refrigeración</h1>
+      <p>Venta de refacciones para mantenimiento y servicio técnico</p>
+    </div>
+  </div>
+</header>
+
+  <!-- NAV -->
+  <nav>
+    <a href="LINK IGA.html">Inicio</a>
+    <a href="producto.html">Productos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <!-- CARRUSEL -->
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="images/yokk.webp" alt="Imagen 1" >
+      <img src="images/Embraco-logo.png" alt="Imagen 2" >
+      <img src="images/danfos.webp" alt="Imagen 3" >
+      <img src="images/sikelan.webp" alt="Imagen 4" >
+      <img src="images/mirage.webp" alt="Imagen 5" >
+      <img src="images/quimo.webp" alt="Imagen 6" >
+      <img src="images/gasservei.webp" alt="Imagen 7" >
+    </div>
+
+    <button class="carousel-btn prev">❮</button>
+    <button class="carousel-btn next">❯</button>
+  </div>
+
+  <!-- INICIO -->
+  <section id="inicio">
+    <h2>¿QUIÉNES SOMOS?</h2>
+
+    <h3>
+      En IGA Refrigeración te ayudamos a crear espacios frescos y cómodos.  
+      Contamos con equipos, refacciones y soluciones para refrigeración y aire acondicionado,  
+      siempre con atención personalizada y asesoría para que elijas lo que realmente necesitas.
+    </h3>
+
+    <h2>¡¡TUS ALIADOS DE CONFIANZA EN CADA PROYECTO!!</h2>
+
+    <img src="images/imagen2.jpg" height="600" width="620">
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos">
+    <h2>Productos</h2>
+    <h3>Refacciones y herramientas para refrigeración, aire acondicionado y lavadoras.</h3>
+
+    <div style="display:flex; justify-content:center; gap:25px; flex-wrap:wrap;">
+      <img src="images/imagen4.png" width="400" height="300">
+      <img src="images/imagen5.jpg" width="400" height="300">
+      <img src="images/imagen6.jpg" width="400" height="300">
+    </div>
+
+    <center>
+      <a href="producto.html" class="btn-modern">Ver Catálogo Completo</a>
+    </center>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <h3>Teléfono: 55 9640 7255</h3>
+    <h3>Dirección: C. Nte. 78-A 5125, Gertrudis Sánchez III Secc, Gustavo A. Madero, CDMX</h3>
+
+    <img src="images/imagen3.jpg" height="600" width="620">
+
+    <h2>Ubicación en el mapa</h2>
+
+    <div style="display:flex; justify-content:center;">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.1358!2d-99.107!3d19.448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f94fb4af!2sGertrudis%20S%C3%A1nchez%20III%20Secc!5e0!3m2!1ses!2smx!4v000000"
+        width="600" height="450" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp-btn" href="https://wa.me/5596407255" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+
+  <!-- SCRIPT DEL CARRUSEL -->
+  <script>
+    const track = document.querySelector(".carousel-track");
+    const slides = Array.from(track.children);
+    let currentIndex = 0;
+
+    const visibleSlides = 3;
+    const maxIndex = slides.length - visibleSlides;
+
+    function updateSlide() {
+      track.style.transform = `translateX(-${currentIndex * (100 / visibleSlides)}%)`;
+    }
+
+    document.querySelector(".next").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1 > maxIndex) ? 0 : currentIndex + 1;
+      updateSlide();
+    });
+
+    document.querySelector(".prev").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 < 0) ? maxIndex : currentIndex - 1;
+      updateSlide();
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1 > maxIndex) ? 0 : currentIndex + 1;
+      updateSlide();
+    }, 2500);
+  </script>
+
+</body>
+<footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <p>📞 55 9640 7255</p>
+      <p>📍 C. Nte. 78-A 5125, Gertrudis Sánchez III Secc, Gustavo A. Madero, CDMX</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Horarios</h3>
+      <p>Lunes a Viernes: 8:30–17:00</p>
+      <p>Sábado: 9:00–14:00</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1CpCgmKRqN/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer-bottom">© 2025 IGA Refrigeración - Todos los derechos reservados</p>
+</footer>
+
+</html>
